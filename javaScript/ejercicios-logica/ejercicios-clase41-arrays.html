@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios de lógica con JS</title>
+  </head>
+  <body>
+    <h1>Ejercicios sencillos</h1>
+    <p>
+      https://www.youtube.com/watch?v=6ZkiOGU4uaA&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=42
+    </p>
+    <script>
+      //       21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+
+      const exponencial = (array = undefined) => {
+        if (array === undefined)
+          return console.warn("no ingresó ningún array. Intenta de nuevo.");
+        if (!(array instanceof Array))
+          return console.error(`"${array}" No es un array`);
+        if (array.length === 0) return console.info("El array está vacío");
+
+        for (const numero of array) {
+          if (typeof numero !== "number")
+            return console.error(`El valor "${numero}" no es un número`);
+        }
+        const newArray = array.map((el) => el * el);
+
+        return console.info(
+          `Arreglo original [${array}]\nArreglo al cuadrado [${newArray}]`
+        );
+      };
+      exponencial();
+      exponencial(1, 2, 3, 4);
+      exponencial([]);
+      exponencial([1, 2, 3, 4]);
+      exponencial([1, 4, 5]);
+
+      // 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+      const altoBajo = (array = undefined) => {
+        if (array === undefined)
+          return console.warn("no ingresó ningún array. Intenta de nuevo.");
+        if (!(array instanceof Array))
+          return console.error(`"${array}" No es un array`);
+        if (array.length === 0) return console.info("El array está vacío");
+        for (const numero of array) {
+          if (typeof numero !== "number")
+            return console.error(`El valor "${numero}" no es un número`);
+        }
+
+        return console.info(
+          `Arreglo original [${array}]\nValor mayor [${Math.max(
+            ...array
+          )}]\nValor menor [${Math.min(...array)}]`
+        );
+      };
+      altoBajo();
+      altoBajo(1, 2, 3, 4);
+      altoBajo([]);
+      altoBajo([1, 2, 3, 4]);
+      altoBajo([1, 4, 5]);
+
+      // 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+      const parImpar = (array = undefined) => {
+        if (array === undefined)
+          return console.warn("no ingresó ningún array. Intenta de nuevo.");
+        if (!(array instanceof Array))
+          return console.error(`"${array}" No es un array`);
+        if (array.length === 0) return console.info("El array está vacío");
+        for (const numero of array) {
+          if (typeof numero !== "number")
+            return console.error(`El valor "${numero}" no es un número`);
+        }
+
+       return console.info({
+         array,
+        pares:array.filter(numero => numero % 2 ===0),
+        impares:array.filter(numero => numero % 2 ===1)
+       })
+      };
+      parImpar();
+      parImpar(1, 2, 3, 4);
+      parImpar([]);
+      parImpar([1, 2, 3, 4]);
+      parImpar([1, 4, 5, 6, 9, 8]);
+
+
+    </script>
+  </body>
+</html>

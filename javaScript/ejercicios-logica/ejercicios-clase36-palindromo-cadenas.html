@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios de lógica con JS</title>
+  </head>
+  <body>
+    <h1>Ejercicios sencillos</h1>
+    <p>
+      https://www.youtube.com/watch?v=U4buFGcd_eg&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=38
+    </p>
+    <script>
+      //       5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+      const invertirCadena = (cadena) => {
+        !cadena
+          ? console.warn(
+              "No ingresaste ninguna cadena de texto. Intenta de nuevo"
+            )
+          : console.log(
+              `el texto "${cadena}" invertido es "${cadena
+                .split("")
+                .reverse()
+                .join("")}"`
+            );
+      };
+      invertirCadena("Hola Mundo");
+      invertirCadena("");
+
+      // 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+
+      function contarPalabra(cadena = "", palabra = "") {
+        if (!cadena)
+          return console.warn(
+            "No ingresaste ninguna cadena de texto. Intenta de nuevo"
+          );
+
+        if (!palabra)
+          return console.warn(
+            "No ingresaste la palabra a evaluar. Intenta de nuevo"
+          );
+
+        let i = 0,
+          contador = 0;
+
+        while (i !== -1) {
+          i = cadena.indexOf(palabra, i);
+          if(i !== -1){
+            i++;
+            contador++;
+          }
+        }
+        return console.log(
+              `En el texto "${cadena}," La palabra "${palabra}" se repite "${contador}" veces.`
+            );
+      }      
+      contarPalabra("Mi mamá me mima, mi mamá me ama", "me");
+
+
+      // 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+      const palindromo = (palabra="") => {
+        if (!palabra)
+          return console.warn(
+            "No ingresaste ninguna cadena de texto. Intenta de nuevo"
+          );
+          palabra = palabra.toLowerCase();
+          let alReves = palabra.split("").reverse().join("");
+
+          return (palabra === alReves)
+          ? console.info(`Si es palíndroma. al derecho es "${palabra}" y al revés es "${alReves}"`)
+          : console.info(`No es palíndroma. al derecho es "${palabra}" y al revés es "${alReves}"`)             
+      }
+      palindromo("Salas");
+      palindromo("Perro")
+
+
+      // 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+      
+    </script>
+  </body>
+</html>

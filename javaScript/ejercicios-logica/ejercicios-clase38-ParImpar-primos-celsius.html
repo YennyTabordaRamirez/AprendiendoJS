@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios de lógica con JS</title>
+  </head>
+  <body>
+    <h1>Ejercicios sencillos</h1>
+    <p>
+      https://www.youtube.com/watch?v=MRmvOTkd7CE&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=38
+    </p>
+    <script>
+      //       12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+      const esPrimo = (numero = undefined) => {
+        if (numero === undefined)
+          return console.warn("No ingresaste ningun número. Intenta de nuevo.");
+        if (numero === 0)
+          return console.error(
+            "El número no puede ser cero. Intenta de nuevo."
+          );
+        if (Math.sign(numero) === -1)
+          return console.error(
+            "El número no puede ser negativo. Intenta de nuevo."
+          );
+        if (typeof numero !== "number")
+          return console.error(
+            "No ingresaste un número válido. Intenta de nuevo."
+          );
+        let contador = 0;
+        for (let i = 1; i <= numero; i++) {
+          if (numero % i === 0) {
+            contador++;
+          }
+        }
+        contador === 2
+          ? console.info(`El número "${numero}" SI es primo`)
+          : console.info(`El número "${numero}" NO es primo`);
+      };
+      esPrimo();
+      esPrimo("1");
+      esPrimo(0);
+      esPrimo(7);
+      esPrimo(8);
+      esPrimo(3);
+
+      // 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+
+      function parImpar(numero) {
+        if (numero === undefined)
+          return console.warn("No ingresaste ningun número. Intenta de nuevo.");
+        if (Math.sign(numero) === -1)
+          return console.error(
+            "El número no puede ser negativo. Intenta de nuevo."
+          );
+        if (typeof numero !== "number")
+          return console.error(
+            "No ingresaste un número válido. Intenta de nuevo."
+          );
+
+        numero / 2 == 0
+          ? console.info(`El número "${numero}" es par`)
+          : console.info(`El número "${numero}" es impar`);
+      }
+      parImpar();
+      parImpar("1");
+      parImpar(-2);
+      parImpar(0);
+      parImpar(7);
+      parImpar(8);
+      parImpar(3);
+
+      // 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+      const celsiusAndFahrenheit = (numero, valor) => {
+        if (numero === undefined)
+          return console.warn(
+            "No ingresaste grado de temperatura. Intenta de nuevo."
+          );
+        if (typeof numero !== "number")
+          return console.error(
+            "No ingresaste un número válido. Intenta de nuevo."
+          );
+        if (valor === undefined)
+          return console.warn(
+            "No ingresaste ningún valor a convertir. Intenta de nuevo."
+          );
+
+        let celsius, fahrenheit;
+        if (valor === "C") {
+          fahrenheit = (numero * 9) / 5 + 32;
+          console.info(`${numero}°C equivale a ${Math.round(fahrenheit)}°F`);
+        }
+        if (valor === "F") {
+          celsius = ((numero - 32) * 5) / 9;
+          console.info(`${numero}°F equivale a ${Math.round(celsius)}°C`);
+        }
+      };
+      celsiusAndFahrenheit();
+      celsiusAndFahrenheit("1");
+      celsiusAndFahrenheit(20);
+      celsiusAndFahrenheit(0, "C");
+      celsiusAndFahrenheit(100, "F");
+    </script>
+  </body>
+</html>
